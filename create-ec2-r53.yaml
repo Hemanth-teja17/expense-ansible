@@ -32,11 +32,11 @@
 
    - name: output of ec2_instances
      ansible.builtin.debug:
-        msg: "{{ ec2_instance }}"
+        msg: "{{ ec2_instances }}"
    
    - name: create r53 records
      amazon.aws.route53:
-      state: present
+      state: absent
       zone: "{{zone}}"
       record: "{{item.item}}.{{zone}}"
       type: A
