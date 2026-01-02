@@ -27,7 +27,7 @@
       name:
         - boto3
         - botocore
-
+      executable: pip3.9
     register: result
 
   - name: output of ec2_instances
