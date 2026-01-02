@@ -29,7 +29,11 @@
         - boto3
         - botocore
 
+    register: result
 
+  - name: output of ec2_instances
+    ansible.builtin.debug:
+      msg: "{{ result }}"
 
 
   
