@@ -7,7 +7,6 @@
     region: us-east-1
     subnet_id: "subnet-013b91028ac4cff48"
     sg_group: "sg-0644430e9f98939b1"
-    tags:
     instances:
     - mysql
     - backend
