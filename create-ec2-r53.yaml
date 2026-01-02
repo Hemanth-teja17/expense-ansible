@@ -44,6 +44,7 @@
       value: "{{ item.instance[0].private-ip_address}}"
       wait: true
       overwrite: true 
+     loop: "{{ec2_instances.results}}"
 
 
 
