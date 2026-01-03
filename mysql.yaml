@@ -1,0 +1,15 @@
+- name: configure mysql
+  hosts: mysql
+  become: yes
+  tasks:
+  - name: install mysql package
+    anisble.builtin.package:
+      name: mysql
+      state: present
+
+  - name: start mysql serevice
+    ansible.builtin.serevice:
+      name: mysqld
+      state: present
+      enable: yes
+  
