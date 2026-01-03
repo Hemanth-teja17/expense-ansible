@@ -10,6 +10,6 @@
   - name: start mysql service
     ansible.builtin.service:
       name: mysqld
-      state: start
+      state: started
       enable: yes
   
