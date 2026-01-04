@@ -11,12 +11,6 @@
 
   - name: enable latest version of nodejs given by dev team
     ansible.builtin.command: dnf module enable nodejs:20 -y
-  
-  - name: daemon service restart
-    ansible.builtin.systemd_service:
-      state: restarted
-      daemon_reload: true
-      name: backend
 
   - name: install nodejs:20
     ansible.builtin.package: 
@@ -74,11 +68,11 @@
       name: all
       target: /app/schema/backend.sql 
 
-  # - name: daemon service restart
-  #   ansible.builtin.systemd_service:
-  #     state: restarted
-  #     daemon_reload: true
-  #     name: backend
-      
+  - name: daemon service restart
+    ansible.builtin.systemd_service:
+        state: restarted
+        daemon_reload: true
+        name: backend
+        
 
 
