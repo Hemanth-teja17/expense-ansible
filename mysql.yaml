@@ -2,8 +2,8 @@
   hosts: mysql
   become: yes
   vars:
-    root_password: ExpenseApp@1
-    root_user
+    mysql_root_password: ExpenseApp@1
+    root_user: root
   tasks:
   - name: install mysql package
     ansible.builtin.package:
@@ -18,9 +18,11 @@
 
   - name: change default root password
     community.mysql.mysql_info:
-      login_user: root
+      login_user: "{{root_user}}"
       login_password: "{{ mysql_root_password }}"
-      login_host: "{{ login_host }}"
+      ignore_errors: true
+
+  - name: setup root password    
     ansible.builtin.command: mysql_secure_installation --set-root-pass ExpenseApp@1
     
   
