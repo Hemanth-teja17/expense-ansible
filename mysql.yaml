@@ -24,5 +24,8 @@
 
   - name: setup root password    
     ansible.builtin.command: mysql_secure_installation --set-root-pass ExpenseApp@1
+
+  - name: insert data into mysql
+    ansible.builtin.command: mysql -h mysql -u root -p "{{mysql_root_password}}"
     
   
