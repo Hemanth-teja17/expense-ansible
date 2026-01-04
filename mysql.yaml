@@ -4,7 +4,7 @@
   vars:
     mysql_root_password: ExpenseApp@1
     root_user: root
-    login_host: mysql.Hemanthk.online
+    login_host: mysql.hemanthk.online
   tasks:
   - name: install mysql package
     ansible.builtin.package:
