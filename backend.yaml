@@ -20,14 +20,14 @@
       - nodejs
       - mysql
 
-  - name: run the nodejs:20
-    ansible.builtin.service:
-      name: "{{item}}"
-      state: started
-      enabled: yes
-    loop:
-      - nodejs
-      - mysql
+  # - name: run the nodejs:20
+  #   ansible.builtin.service:
+  #     name: "{{item}}"
+  #     state: started
+  #     enabled: yes
+  #   loop:
+  #     - nodejs
+  #     - mysql
 
   - name: create user expense
     ansible.builtin.user:
