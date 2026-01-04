@@ -6,6 +6,24 @@
     mysql_root_password: "{{ExpenseApp@1}}"
     login_host: "{{mysql.hemanthk.online}}"
   tasks:
+  - name: Install necessary packages
+    yum:
+        name:
+          - openssh-clients
+          - rsync
+        state: present
+
+  - name: Ensure /tmp is writable
+    file:
+        path: /tmp
+        state: directory
+        mode: '1777'
+
+  - name: Ensure ec2-user home is writable
+    file:
+        path: /home/ec2-user
+        state: directory
+        mode: '0700'  
   - name: disable default nodejs version
     ansible.builtin.command: dnf module disable nodejs -y
 
