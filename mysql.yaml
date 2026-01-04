@@ -8,12 +8,14 @@
   tasks:
   - name: install mysql package
     ansible.builtin.package:
-      name: "{{item}}"
+      name: mysql-server
       state: present
-    loop:
-      - mysql-server
+      
+  - name: ansible to install pymysql
+    ansible.builtin.pip:
+      name:
       - PyMySQL
-    executable: pip3.9
+      executable: pip3.9
 
   - name: start mysql service
     ansible.builtin.service:
