@@ -4,6 +4,7 @@
   vars:
     mysql_root_password: ExpenseApp@1
     root_user: root
+    login_host: mysql.Hemanthk.online
   tasks:
   - name: install mysql package
     ansible.builtin.package:
@@ -20,12 +21,19 @@
     community.mysql.mysql_info:
       login_user: "{{root_user}}"
       login_password: "{{ mysql_root_password }}"
-      login_host: "{{mysql}}"
+      login_host: "{{login_host}}"
+    ignore_errors: true
+    register: mysql_info
+
+  - name: output of mysql_info
+    ansible.builtin.debug:
+      msg: "{{mysql_info}}"
 
   - name: setup root password    
-    ansible.builtin.command: mysql_secure_installation --set-root-pass ExpenseApp@1
+    ansible.builtin.command: mysql_secure_installation --set-root-pass "{{ mysql_root_password }}"
+    when: mysql_info.failed is ture
 
   - name: insert data into mysql
-    ansible.builtin.command: mysql -h mysql -u root -p "{{mysql_root_password}}"
+    ansible.builtin.command: mysql -h "{{login_host}}" -u root -p "{{mysql_root_password}}"
     
   
