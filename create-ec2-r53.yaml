@@ -48,7 +48,7 @@
 
    - name: create r53 records
      amazon.aws.route53:
-      state: abes
+      state: present
       zone: "{{zone}}"
       record: "{{zone}}"
       type: A
