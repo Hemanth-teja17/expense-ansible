@@ -23,7 +23,6 @@
   - name: create user expense
     ansible.builtin.user:
       name: expense
-      state: present
 
   # - name: Create a directory if it does not exist
   #   ansible.builtin.file:

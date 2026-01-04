@@ -11,7 +11,7 @@
       name: mysql-server
       state: present
 
-  - name: ansible to install pymysql
+  - name: install pymysql
     ansible.builtin.pip:
       name:
       - PyMySQL
