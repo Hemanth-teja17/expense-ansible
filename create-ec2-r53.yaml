@@ -8,10 +8,10 @@
     subnet_id: "subnet-013b91028ac4cff48"
     sg_group: "sg-0644430e9f98939b1"
     zone: "hemanthk.online"
-    # instances:
-    # - mysql
-    # - backend
-    # - frontend
+    instances:
+    - mysql
+    - backend
+    - frontend
   
   tasks:
    - name: install boto3 and botocore
