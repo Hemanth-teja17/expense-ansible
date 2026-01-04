@@ -24,6 +24,7 @@
     ansible.builtin.service:
       name: "{{item}}"
       state: started
+      enabled: yes
     loop:
       - nodejs
       - mysql
