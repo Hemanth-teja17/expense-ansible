@@ -3,8 +3,8 @@
   become: yes
   vars:
    # root_user: "{{root}}"
-    mysql_root_password: "{{ExpenseApp@1}}"
-    login_host: "{{mysql.hemanthk.online}}"
+    mysql_root_password: ExpenseApp@1
+    login_host: mysql.hemanthk.online
   tasks:
   - name: disable default nodejs version
     ansible.builtin.command: dnf module disable nodejs -y
@@ -60,7 +60,7 @@
     
   - name: import data to schema
     community.mysql.mysql_db:
-      login_user: "{{root_user}}"
+      login_user: root_user
       login_password: "{{ mysql_root_password }}"
       login_host: "{{login_host}}"
       state: import
