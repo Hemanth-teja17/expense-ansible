@@ -5,8 +5,8 @@
   vars:
     ami_id: "ami-09c813fb71547fc4f"
     region: us-east-1
-    subnet_id: "subnet-013b91028ac4cff48"
-    sg_group: "sg-0644430e9f98939b1"
+    subnet_id: "subnet-0dbded35bdd4bc6d6"
+    sg_group: "sg-02a37fcfdd34679b1"
     zone: "hemanthk.online"
     instances:
     - mysql
