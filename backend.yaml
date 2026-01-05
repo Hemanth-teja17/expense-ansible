@@ -2,28 +2,10 @@
   hosts: backend
   become: yes
   vars:
-    root_user: "{{root}}"
+   # root_user: "{{root}}"
     mysql_root_password: "{{ExpenseApp@1}}"
     login_host: "{{mysql.hemanthk.online}}"
   tasks:
-  - name: Install necessary packages
-    yum:
-      name:
-          - openssh-clients
-          - rsync
-      state: present
-
-  - name: Ensure /tmp is writable
-    file:
-        path: /tmp
-        state: directory
-        mode: '1777'
-
-  - name: Ensure ec2-user home is writable
-    file:
-        path: /home/ec2-user
-        state: directory
-        mode: '0700' 
   - name: disable default nodejs version
     ansible.builtin.command: dnf module disable nodejs -y
 
@@ -87,9 +69,10 @@
 
   - name: daemon service restart
     ansible.builtin.systemd_service:
-        state: restarted
-        daemon_reload: true
-        name: backend
+     name: backend
+     state: restarted
+     daemon_reload: true
+        
         
 
 
