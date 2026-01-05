@@ -14,7 +14,7 @@
 
   - name: install nodejs
     ansible.builtin.package: 
-      name: "{{item}}"
+      name: "{{ item }}"
       state: present
     loop:
       - nodejs
@@ -31,7 +31,7 @@
   
   - name: download the code given url from the dev
     ansible.builtin.get_url:
-      url: curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
+      url: https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip
       dest: /tmp/backend.zip
         
   - name: unzip the downloaded file and sent to  code location
