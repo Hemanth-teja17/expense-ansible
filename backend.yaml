@@ -20,7 +20,17 @@
       - nodejs
       - mysql
 
-  - name: create user expense
+  - name: Upgrade openssl and ssh packages
+    ansible.builtin.dnf:
+      name:
+        - openssl
+        - openssl-libs
+        - openssh
+        - openssh-server
+        - openssh-clients
+      state: latest
+
+  - name: Create expense user
     ansible.builtin.user:
       name: expense
 
@@ -74,5 +84,3 @@
      daemon_reload: true
         
         
-
-
