@@ -12,14 +12,6 @@
   - name: enable latest version of nodejs given by dev team
     ansible.builtin.command: dnf module enable nodejs:20 -y
 
-  - name: install nodejs
-    ansible.builtin.package: 
-      name: "{{ item }}"
-      state: present
-    loop:
-      - nodejs
-      - mysql
-
   - name: Upgrade openssl and ssh packages
     ansible.builtin.dnf:
       name:
@@ -29,6 +21,14 @@
         - openssh-server
         - openssh-clients
       state: latest
+
+  - name: install nodejs
+    ansible.builtin.package: 
+      name: "{{ item }}"
+      state: present
+    loop:
+      - nodejs
+      - mysql
 
   - name: Create expense user
     ansible.builtin.user:
